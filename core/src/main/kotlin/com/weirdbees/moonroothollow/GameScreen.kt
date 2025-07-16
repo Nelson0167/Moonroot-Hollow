@@ -101,4 +101,8 @@ class GameScreen(
     override fun dispose() {
         assetManager.dispose()
     }
+
+    fun test() {
+        // No-Op
+    }
 }
