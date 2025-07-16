@@ -35,7 +35,7 @@ class OverworldScreen(private val game: MoonrootHollowGame) : Screen {
         player.update(delta) // update logic (movement, input, etc)
         worldTime.update(delta)
 
-        sleepSystem.checkSleepTrigger(player.getPosition())
+        sleepSystem.checkSleepTrigger(player.position)
 
         // Set up camera and draw everything
         camera.update()
