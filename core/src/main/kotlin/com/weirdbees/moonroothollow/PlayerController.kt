@@ -8,13 +8,13 @@ import kotlin.math.min
 
 class PlayerController {
 
-    val position = Vector2(100f, 100f) // this tracks players current condition
+    val position = Vector2(100f, 100f)
 
     private var targetPosition = Vector2(position) // this is where the player is trying to move forward
 
     private val speed = 100f // this is the players movement speed in pixels per second
 
-    private val texture = Texture("player.png") // this is just a placeholder image
+    val texture = Texture("player.png") // this is just a placeholder image
 
     fun update(delta: Float) {
         // If the screen was touched, set a new target position

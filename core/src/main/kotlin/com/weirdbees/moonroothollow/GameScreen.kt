@@ -16,6 +16,8 @@ import com.badlogic.gdx.utils.viewport.Viewport
 class GameScreen(
     private val game: MoonrootHollowGame
 ) : ScreenAdapter() {
+
+    private val playerController = PlayerController()
     private val worldTime = WorldTime()
     private val cropSystem = CropSystem(worldTime)
 
@@ -61,6 +63,10 @@ class GameScreen(
         worldTime.update(delta)
         cropSystem.advanceGrowth()
 
+        playerController.update(delta)
+
+        val playerPos = playerController.position
+
         // Clear Screen
         Gdx.gl.glClearColor(0f, 0f, 0f, 1f)
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
@@ -77,6 +83,8 @@ class GameScreen(
                 batch.draw(region, crop.position.x, crop.position.y)
             }
         }
+
+        batch.draw(playerController.texture, playerPos.x, playerPos.y)
 
         batch.end()
     }
@@ -98,6 +106,6 @@ class GameScreen(
     }
 
     override fun dispose() {
-        assetManager.dispose()
+        // No-Op
     }
 }

@@ -1,7 +1,6 @@
 package com.weirdbees.moonroothollow
 
 import com.badlogic.gdx.math.Vector2
-import com.badlogic.gdx.scenes.scene2d.Stage
 
 class CropSystem(private val worldTime: WorldTime) {
     private val _plantedCrops = mutableListOf<Crop>()
