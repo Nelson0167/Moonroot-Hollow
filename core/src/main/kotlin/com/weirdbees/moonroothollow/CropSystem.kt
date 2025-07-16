@@ -4,31 +4,32 @@ import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.scenes.scene2d.Stage
 
 class CropSystem(private val worldTime: WorldTime) {
-    private val plantedCrops = mutableListOf<Crop>()
+    private val _plantedCrops = mutableListOf<Crop>()
+    val plantedCrops: List<Crop> get() = _plantedCrops
 
     init {
         println("CropSystem Initialized.")
     }
 
     fun plantCrop(x: Float, y: Float) {
-        plantedCrops.add(Crop(Vector2(x, y)))
+        _plantedCrops.add(Crop(Vector2(x, y)))
         println("Planted a crop at ($x, $y)")
     }
 
     fun advanceGrowth() {
-        for(crop in plantedCrops) {
+        for(crop in _plantedCrops) {
             crop.advanceGrowth()
         }
     }
 
     fun printAllCrops() {
         println("Planters Log:")
-        for (crop in plantedCrops) {
+        for (crop in _plantedCrops) {
             println(" - (${crop.position.x}, ${crop.position.y}) -> Stage: ${crop.growthStage}")
         }
     }
 
-    private data class Crop(
+    data class Crop(
         val position: Vector2,
         var growthStage: Int = 0,
         val maxGrowthStage: Int = 3
