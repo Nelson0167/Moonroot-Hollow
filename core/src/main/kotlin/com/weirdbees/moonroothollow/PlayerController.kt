@@ -37,10 +37,6 @@ class PlayerController {
         }
     }
 
-    fun getPosition(): Vector2 {
-        return position
-    }
-
     fun render(batch: SpriteBatch) {
         batch.draw(texture, position.x, position.y)
     }

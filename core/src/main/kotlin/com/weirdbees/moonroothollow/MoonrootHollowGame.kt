@@ -15,7 +15,7 @@ class MoonrootHollowGame : Game() {
         font = BitmapFont()
 
         assetManager = AssetManager()
-        setScreen(MainMenuScreen(this)) // making next
+        setScreen(LoadingScreen(this))
     }
 
     override fun dispose() {

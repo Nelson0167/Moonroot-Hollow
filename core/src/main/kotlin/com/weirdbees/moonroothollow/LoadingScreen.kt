@@ -12,6 +12,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.Viewport
+import com.weirdbees.moonroothollow.MainMenuScreen
+
 
 class LoadingScreen(private val game: MoonrootHollowGame
 ) : ScreenAdapter() {
@@ -77,7 +79,7 @@ class LoadingScreen(private val game: MoonrootHollowGame
     override fun render(delta: Float) {
         // Queue Continues Loading in the Background; update() returns true when all assets loaded
         if (assetManager.update()) {
-            // All Required Assets are Reaedy; switch to the main menu
+            // All Required Assets are Ready; switch to the main menu
             game.screen = MainMenuScreen(game)
             return // Exit Early to Avoid Drawing this Frame
         }
