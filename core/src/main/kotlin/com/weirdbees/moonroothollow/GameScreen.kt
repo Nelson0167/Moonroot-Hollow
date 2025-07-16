@@ -26,12 +26,11 @@ class GameScreen(
     private lateinit var viewport: Viewport
     private lateinit var cropAtlas: TextureAtlas
 
-    private val assetManager = AssetManager() // Do I use this one or:
-    private val assetManager get() = game.assetManager // this one
+    private val assetManager get() = game.assetManager
 
-    companion object { // I've never seen a companion object before...how does it work?
+    companion object {
         private const val WORLD_WIDTH = 800f
-        private const val WORLD_HEIGHT = 280f
+        private const val WORLD_HEIGHT = 480f
     }
 
     override fun show() {
@@ -39,7 +38,7 @@ class GameScreen(
         if(!assetManager.isLoaded("crops.atlas", TextureAtlas::class.java)) {
             assetManager.load("crops.atlas", TextureAtlas::class.java)
         }
-        assetManager.finishLoad()
+        assetManager.finishLoading()
         cropAtlas = assetManager.get("crops.atlas", TextureAtlas::class.java)
 
         // 2) Set Up the Camera and Viewport
@@ -100,9 +99,5 @@ class GameScreen(
 
     override fun dispose() {
         assetManager.dispose()
-    }
-
-    fun test() {
-        // No-Op
     }
 }
